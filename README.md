@@ -1,4 +1,0 @@
-MisterX
-=======
-
-MisterX XBMC Repo
