@@ -1,3 +1,6 @@
+v1.0.4
+Update of video info extraction regexp (correct as of 27 Nov 2013)
+
 v1.0.3
 Added Default View
 

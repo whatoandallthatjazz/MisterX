@@ -54,7 +54,7 @@ def EMBED(url,name):
         response = urllib2.urlopen(req)
         link=response.read()
         response.close()
-        match=re.compile('<div id="player">\r\n\t\t\t<video src="(.+?)" poster="(.+?)" x-webkit-airplay="allow"').findall(link)
+        match=re.compile('<div id="player">\r\n\t\t\t<video src = \'\' data-src="(.+?)" poster="(.+?)" x-webkit-airplay="allow"').findall(link)
         for url,iconimage in match:
                  addLink(name,url,iconimage)                 
 #adding Resolver

@@ -67,14 +67,15 @@ class Generator:
         filename = path + "-" + version + ".zip"
         try:
             zip = zipfile.ZipFile(filename, 'w')
-            for root, dirs, files in os.walk(path + "\\"):
+            for root, dirs, files in os.walk(os.path.join(path, "")):
                 for file in files:
                     zip.write(os.path.join(root, file))
             zip.close()
-            if os.path.isfile(zippath + "\\" + addonid + "\\" + filename):
-                os.unlink(zippath + "\\" + addonid + "\\" + filename)
+            relativefilepath = os.path.join(zippath, addonid, filename)
+            if os.path.isfile(relativefilepath):
+                os.unlink(relativefilepath)
 #                os.rename(zippath + "\\" + addonid + "\\" + filename, zippath + "\\" + addonid + "\\" + filename + "." + datetime.datetime.now().strftime("%Y%m%d%H%M%S") )
-            shutil.move(filename, zippath + "\\" + addonid + "\\")
+            shutil.move(filename, os.path.join(zippath, addonid, ""))
         except Exception, e:
             print e
 
